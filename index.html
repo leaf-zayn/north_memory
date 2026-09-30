@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e8d1b9">
+  <meta name="description" content="从雪落的哈尔滨，到森林尽头的漠河。把一段向北的旅程，读成一本冬日绘本。">
+  <title>北境 · 把冬天写成一封长信</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/harbin-story.png" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" type="module"></script>
+</head>
+<body data-chapter="harbin" class="day-scene">
+  <a class="skip-link" href="#harbin">跳到旅程正文</a>
+  <div class="world" aria-hidden="true">
+    <div class="art-layer is-visible" data-art="harbin"><img src="./assets/harbin-story.png" alt="" fetchpriority="high"></div>
+    <div class="art-layer" data-art="train"><img src="./assets/train-story.png" alt="" decoding="async"></div>
+    <div class="art-layer" data-art="mohe"><img src="./assets/mohe-story.png" alt="" decoding="async"></div>
+    <div class="reading-light"></div><canvas id="snow"></canvas>
+  </div>
+  <header class="masthead">
+    <a href="#harbin" class="brand" aria-label="北境，回到故事开头"><span class="brand-title">北境</span><span class="brand-seal" aria-hidden="true">冬</span></a>
+    <p class="book-title">一本向北的旅行绘本</p>
+    <button type="button" id="motion-toggle" class="motion-toggle" aria-pressed="false"><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 10 7-10 7Z"/></svg><span>暂停动态</span></button>
+  </header>
+  <main id="story">
+    <section id="harbin" class="chapter" aria-labelledby="harbin-title">
+      <div class="chapter-copy"><h1 id="harbin-title">向北，<br>去冬天里。</h1><p class="chapter-prose">从一座落雪的城出发，<br>去听森林和旷野的回声。</p><a class="scene-note-link" href="#harbin-note" data-open-note="harbin"><span class="note-dot" aria-hidden="true"></span>雪落哈尔滨<span class="note-plus" aria-hidden="true">+</span></a></div>
+      <div class="scene-caption"><span>哈尔滨</span><span>暖灯，把雪照得很慢。</span></div>
+    </section>
+    <section id="train" class="chapter" aria-labelledby="train-title">
+      <div class="chapter-copy"><h2 id="train-title">穿过林海，<br>把时间放慢。</h2><p class="chapter-prose">车窗是一帧流动的电影。<br>一半是雪，一半是远方。</p><a class="scene-note-link" href="#train-note" data-open-note="train"><span class="note-dot" aria-hidden="true"></span>夜行的绿皮车<span class="note-plus" aria-hidden="true">+</span></a></div>
+      <div class="scene-caption"><span>一路向北</span><span>醒着的人看雪，睡着的人做梦。</span></div>
+    </section>
+    <section id="mohe" class="chapter" aria-labelledby="mohe-title">
+      <div class="chapter-copy"><h2 id="mohe-title">森林尽头，<br>星河很近。</h2><p class="chapter-prose">木屋亮起灯，世界静下来。<br>我们把心事，讲给北方的夜。</p><a class="scene-note-link" href="#mohe-note" data-open-note="mohe"><span class="note-dot" aria-hidden="true"></span>漠河的漫长夜晚<span class="note-plus" aria-hidden="true">+</span></a></div>
+      <div class="scene-caption"><span>漠河</span><span>不追赶什么，只在这里待一会儿。</span></div>
+    </section>
+    <section id="memories" class="chapter memory-chapter" aria-labelledby="memories-title">
+      <div class="chapter-copy"><h2 id="memories-title">这一页，<br>留给我们。</h2><p class="chapter-prose">风景会远去，记忆不会。<br>等回来，再把这个冬天写完整。</p><a href="#harbin" class="restart-link">再走一遍</a></div>
+      <div class="memory-leaf" aria-label="留待未来填入的回忆页"><span class="leaf-top">我们的冬天</span><p class="leaf-message">有些瞬间，<br>值得慢慢收藏。</p><p class="leaf-foot">照片、碎碎念，还有我们。<br><span>这一页，等旅行回来再写。</span></p><span class="leaf-signature">哈尔滨 · 漠河</span></div>
+    </section>
+  </main>
+  <footer class="story-controls">
+    <div class="scroll-cue"><span class="scroll-line" aria-hidden="true"></span><span id="scroll-label">滚动，翻开下一幕</span></div>
+    <nav class="chapter-nav" aria-label="旅程章节">
+      <a href="#harbin" aria-current="step"><span class="chapter-number">一</span><span class="chapter-label">雪落的城</span></a>
+      <a href="#train"><span class="chapter-number">二</span><span class="chapter-label">一路向北</span></a>
+      <a href="#mohe"><span class="chapter-number">三</span><span class="chapter-label">森林尽头</span></a>
+      <a href="#memories"><span class="chapter-number">终</span><span class="chapter-label">我们的冬天</span></a>
+      <span class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></span>
+    </nav>
+    <button id="about-toggle" type="button" class="about-toggle" aria-expanded="false" aria-controls="about-book">关于绘本</button>
+  </footer>
+  <aside id="scene-note" class="scene-note" aria-labelledby="note-title" hidden>
+    <button id="close-note" class="close-note" type="button" aria-label="收起手记"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+    <span id="note-location" class="note-location"></span><h2 id="note-title" tabindex="-1"></h2><p id="note-body"></p><span class="note-signature">一页旅途手记</span>
+  </aside>
+  <aside id="about-book" class="about-book" hidden>
+    <button id="close-about" class="close-note" type="button" aria-label="关闭绘本说明"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+    <h2 tabindex="-1">关于这本绘本</h2><p>这是一段关于哈尔滨与漠河的艺术化旅程。场景由 AI 创作，以立体视差和镜头转场呈现，不是真实地图或可自由旋转的三维模型。</p><p>列车、建筑与村落都是叙事布景，不对应具体班次、路线或现场。夜空中的极光是一种艺术想象，不代表冬季一定能看到。</p><p>回忆页暂未开放上传与保存，之后可以把你们的照片和文字接到每一幕里。</p>
+  </aside>
+  <p id="art-error" class="art-error" role="status" hidden>这幅场景没有加载出来。<button type="button" id="retry-art">重新加载</button></p>
+  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <noscript><p class="noscript-note">启用 JavaScript 后可观看场景转场和飘雪；现在仍可阅读旅程正文。</p></noscript>
+</body>
+</html>
